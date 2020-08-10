@@ -1,0 +1,9 @@
+<div class="input-group">
+  <div class="input-group__icon" (click)="decrement()">
+    <ion-icon name="remove-outline"></ion-icon>
+  </div>
+  <input class="input" min="1" max="5" [(ngModel)]="value" (change)="onChanged()" type="number">
+  <div class="input-group__icon" (click)="increment()">
+    <ion-icon name="add-outline"></ion-icon>
+  </div>
+</div>
