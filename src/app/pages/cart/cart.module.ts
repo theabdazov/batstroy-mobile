@@ -10,6 +10,7 @@ import {CartPage} from './cart.page';
 import {CounterModule} from '../../modules/counter/counter.module';
 import {OrderComponent} from './order/order.component';
 import {Toast} from '@ionic-native/toast/ngx';
+import {FilePathModule} from '../../modules/file-path/file-path.module';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import {Toast} from '@ionic-native/toast/ngx';
     IonicModule,
     CartPageRoutingModule,
     CounterModule,
+    FilePathModule,
   ],
   providers: [Toast],
   declarations: [CartPage, OrderComponent]

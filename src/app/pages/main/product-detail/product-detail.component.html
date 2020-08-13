@@ -10,7 +10,7 @@
 <ion-content>
   <ion-slides class="slide-padding" pager="true">
     <ion-slide *ngFor="let story of product?.photos">
-      <ion-img src="{{story}}"></ion-img>
+      <ion-img src="{{story | filePath}}"></ion-img>
     </ion-slide>
   </ion-slides>
   <ion-text>

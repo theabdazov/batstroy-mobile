@@ -10,6 +10,7 @@ import { MainPage } from './main.page';
 import {ProductListComponent} from './product-list/product-list.component';
 import {ProductDetailComponent} from './product-detail/product-detail.component';
 import {CounterModule} from '../../modules/counter/counter.module';
+import {FilePathModule} from '../../modules/file-path/file-path.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import {CounterModule} from '../../modules/counter/counter.module';
     FormsModule,
     IonicModule,
     MainPageRoutingModule,
-    CounterModule
+    CounterModule,
+    FilePathModule
   ],
   declarations: [MainPage, ProductListComponent, ProductDetailComponent]
 })

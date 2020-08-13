@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  backendUrl: 'http://batstroy.kg'
+  backendUrl: 'https://batstroy.kg'
 };

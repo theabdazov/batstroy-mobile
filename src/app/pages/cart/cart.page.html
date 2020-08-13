@@ -10,7 +10,7 @@
       <ion-icon (click)="delete(product.id)" class="close-icon" name="close-outline"></ion-icon>
       <ion-grid>
         <ion-row class="ion-align-items-center">
-          <ion-col [size]="4"><img [src]="product.photos[0]" alt=""></ion-col>
+          <ion-col [size]="4"><img [src]="product.photos[0] | filePath" alt=""></ion-col>
           <ion-col [size]="8">
             <ion-card-title>{{product.name}}</ion-card-title>
             <ion-card-subtitle class="price">{{product.price}} сом * {{cartMap[product.id]}}</ion-card-subtitle>

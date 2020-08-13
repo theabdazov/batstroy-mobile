@@ -1,3 +1,38 @@
+.back-icon {
+  font-size: 27px;
+}
+
+.second-toolbar {
+  --min-height: 40px;
+  --padding-top: 0
+}
+
+.categories {
+  display: flex;
+}
+
+.category {
+  font-size: 12px;
+  border-radius: 2px;
+  border: 1px solid silver;
+  padding: 5px;
+}
+
+.slide {
+  width: auto;
+}
+
+.not-found {
+  color: #3d464d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.not-found__icon {
+  font-size: 50px;
+}
+
 ion-input {
   border: solid 1px red;
 }

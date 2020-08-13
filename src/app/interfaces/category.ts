@@ -8,3 +8,7 @@ export interface Category {
 export interface CategoryNode extends Category {
   children: CategoryNode[];
 }
+
+export interface CategoryWithParent extends Category {
+  parentId: number;
+}
