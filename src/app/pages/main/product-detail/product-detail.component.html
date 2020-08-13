@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{product?.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides class="slide-padding" pager="true">
+    <ion-slide *ngFor="let story of product?.photos">
+      <ion-img src="{{story}}"></ion-img>
+    </ion-slide>
+  </ion-slides>
+  <ion-text>
+    <h1 class="padding">{{product?.name}}</h1>
+  </ion-text>
+  <ion-text>
+    <p class="padding">Код товара {{product?.id}}</p>
+  </ion-text>
+  <ion-text>
+    <h3 class="padding">{{product?.price}} сом</h3>
+  </ion-text>
+  <ion-item>
+    <app-counter [(value)]="count"></app-counter>
+    <ion-button size="default" (click)="addToCart()"> В корзину</ion-button>
+  </ion-item>
+  <ion-text>
+    <h3 class="padding">Характеристики</h3>
+  </ion-text>
+  <ion-item-group>
+    <ion-item *ngFor="let characteristic of product?.characteristicValues">
+      <ion-label>{{characteristic.characteristic?.name}}</ion-label>
+      <ion-label>{{characteristic.value}}</ion-label>
+    </ion-item>
+  </ion-item-group>
+</ion-content>

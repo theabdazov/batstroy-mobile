@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-searchbar></ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-card *ngFor="let product of products" [routerLink]="['product', product.id]">
+        <ion-grid>
+            <ion-row class="ion-align-items-center">
+                <ion-col [size]="4"><img [src]="product.photos[0]" alt=""></ion-col>
+                <ion-col [size]="8">
+                    <ion-card-title>{{product.name}}</ion-card-title>
+                    <ion-card-subtitle class="price">{{product.price}} сом</ion-card-subtitle>
+                    <ion-card-subtitle>Код товара {{product.id}}</ion-card-subtitle>
+                    <div class="btn" (click)="addToCart(product.id, $event)">
+                        <ion-icon name="cart-outline"></ion-icon>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+    <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Загрузка..."></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

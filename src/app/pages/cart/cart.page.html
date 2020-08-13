@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Корзина</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container *ngIf="products.length; else elseTmpl">
+    <ion-card class="card" *ngFor="let product of products">
+      <ion-icon (click)="delete(product.id)" class="close-icon" name="close-outline"></ion-icon>
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col [size]="4"><img [src]="product.photos[0]" alt=""></ion-col>
+          <ion-col [size]="8">
+            <ion-card-title>{{product.name}}</ion-card-title>
+            <ion-card-subtitle class="price">{{product.price}} сом * {{cartMap[product.id]}}</ion-card-subtitle>
+            <ion-card-subtitle>Код товара {{product.id}}</ion-card-subtitle>
+            <div class="count">
+              <app-counter [value]="cartMap[product.id]" (valueChange)="updateCount(product.id, $event)"></app-counter>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+    <ion-item>
+      <ion-label>
+        Итого: {{totalPrice}} сом
+      </ion-label>
+    </ion-item>
+    <div class="btn-wrapper">
+      <ion-button (click)="presentModal()">Оформить заказ</ion-button>
+    </div>
+  </ng-container>
+  <ng-template #elseTmpl>
+    <div class="ion-padding empty">
+      <div class="empty__icon">
+        <ion-icon name="cart-outline"></ion-icon>
+      </div>
+      <h2>Корзина пуста</h2>
+      <ion-label>
+        Перейдите в каталог и добавьте желаемые товары
+      </ion-label>
+    </div>
+  </ng-template>
+
+
+</ion-content>

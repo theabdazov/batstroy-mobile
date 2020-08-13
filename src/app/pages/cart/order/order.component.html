@@ -1,0 +1,31 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Оформить заказ</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Отмена</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Введите ваше ФИО</ion-label>
+      <ion-input [(ngModel)]="orderAdding.customerFullName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Номер телефона</ion-label>
+      <ion-input [(ngModel)]="orderAdding.customerPhoneNumber"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Адрес для доставки</ion-label>
+      <ion-textarea [(ngModel)]="orderAdding.address"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Коментарии (не обязательно)</ion-label>
+      <ion-textarea [(ngModel)]="orderAdding.comment"></ion-textarea>
+    </ion-item>
+  </ion-list>
+  <div class="btn-wrapper">
+    <ion-button (click)="order()">Оформить заказ</ion-button>
+  </div>
+</ion-content>
