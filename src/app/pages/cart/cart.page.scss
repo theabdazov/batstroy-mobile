@@ -11,6 +11,10 @@
 
 .card {
   position: relative;
+  color: #3d464d;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ededed;
+  border-radius: 2px;
 }
 
 .close-icon {
@@ -37,4 +41,44 @@
 .empty__icon {
   font-size: 60px;
   color: #3d464d;
+}
+
+.product__name {
+  color: #3d464d;
+  font-size: 16px;
+}
+
+.product__price {
+  font-size: 16px;
+  color: #3d464d;
+  margin: 5px 0;
+  font-weight: 600;
+}
+
+.last-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product__code {
+  font-size: 12px;
+  color: #848484;
+}
+
+.btn {
+  border-radius: 2px;
+  transition: all .1s ease-in-out;
+  padding: .375rem 1rem;
+  font-weight: 500;
+  border-width: 0;
+  border-color: #c33;
+  background: #c33;
+  color: #fff;
+  fill: #fff;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  font-size: 16px;
+  margin-top: 10px;
 }

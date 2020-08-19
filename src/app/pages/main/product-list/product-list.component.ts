@@ -5,13 +5,14 @@ import {PaginationPage} from '../../../interfaces/pagination';
 import {CartService} from '../../../services/cart.service';
 import {CategoryService} from '../../../services/category.service';
 import {Category, CategoryNode, CategoryWithParent} from '../../../interfaces/category';
+import {ClearSubscriptions} from '../../../util/clear-subscriptions';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent extends ClearSubscriptions implements OnInit {
 
   products: ProductShortPublic[] = [];
   filter: ProductFilterPublic = {
@@ -31,16 +32,26 @@ export class ProductListComponent implements OnInit {
     spaceBetween: 20
   };
 
+  cartMap: { [key: number]: number } = {};
+
   constructor(
     private productService: ProductService,
     private cartService: CartService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
   ) {
+    super();
   }
 
   ngOnInit() {
     this.getData();
     this.getCategories();
+    this.addSubscription(
+      this.cartService.cartMap.subscribe(
+        data => {
+          this.cartMap = data;
+        }
+      )
+    );
   }
 
   getData(): void {
@@ -110,12 +121,14 @@ export class ProductListComponent implements OnInit {
   }
 
   addToCart(productId: number, event: MouseEvent): void {
+    event.preventDefault();
     event.stopPropagation();
     this.cartService.addToCart(productId, 1);
   }
 
   categorySelect(categoryId: number): void {
     this.filter.categoryId = categoryId;
+    this.getData();
   }
 
   onClickBack(): void {
@@ -124,6 +137,7 @@ export class ProductListComponent implements OnInit {
     } else {
       this.filter.categoryId = 0;
     }
+    this.getData();
   }
 
   search(): void {

@@ -33,6 +33,8 @@ export class CartPage extends ClearSubscriptions implements OnInit {
           const count = Object.keys(data).length;
           if (count) {
             this.load();
+          } else {
+            this.products = [];
           }
         }
       )

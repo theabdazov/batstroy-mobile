@@ -1,38 +1,45 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button [icon]="'chevron-back-outline'"></ion-back-button>
     </ion-buttons>
     <ion-title>{{product?.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   <ion-slides class="slide-padding" pager="true">
     <ion-slide *ngFor="let story of product?.photos">
       <ion-img src="{{story | filePath}}"></ion-img>
     </ion-slide>
   </ion-slides>
-  <ion-text>
-    <h1 class="padding">{{product?.name}}</h1>
-  </ion-text>
-  <ion-text>
-    <p class="padding">Код товара {{product?.id}}</p>
-  </ion-text>
-  <ion-text>
-    <h3 class="padding">{{product?.price}} сом</h3>
-  </ion-text>
-  <ion-item>
-    <app-counter [(value)]="count"></app-counter>
-    <ion-button size="default" (click)="addToCart()"> В корзину</ion-button>
-  </ion-item>
-  <ion-text>
-    <h3 class="padding">Характеристики</h3>
-  </ion-text>
-  <ion-item-group>
-    <ion-item *ngFor="let characteristic of product?.characteristicValues">
-      <ion-label>{{characteristic.characteristic?.name}}</ion-label>
-      <ion-label>{{characteristic.value}}</ion-label>
-    </ion-item>
-  </ion-item-group>
+  <div class="product__name">{{product?.name}}</div>
+  <div class="product__code">Код товара {{product?.id}}</div>
+  <div class="cart">
+    <div class="product__price">{{product?.price}} сом</div>
+    <ng-container *ngIf="cartMap[product?.id]; else elseTmpl">
+      <div class="added">
+        <div class="added__text">Добавлено <br/> в корзину</div>
+        <ion-icon class="added__icon" name="checkmark-done-outline"></ion-icon>
+      </div>
+    </ng-container>
+    <ng-template #elseTmpl>
+      <button (click)="addToCart()" class="cart-btn">Добавить в корзину</button>
+    </ng-template>
+  </div>
+  <div class="card">
+    <div class="card__title">Краткая описание</div>
+    <div class="card__body">{{product?.desc}}</div>
+  </div>
+  <div class="card" *ngIf="product?.characteristicValues?.length">
+    <div class="card__title">Характеристики</div>
+    <div class="card__body">
+      <div class="characteristic">
+        <div class="characteristic__item" *ngFor="let characteristic of product?.characteristicValues">
+          <div class="characteristic__name">{{characteristic.characteristic?.name}}</div>
+          <div class="characteristic__value">{{characteristic.value}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>

@@ -1,9 +1,10 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="first-toolbar">
     <ion-buttons (click)="onClickBack()" slot="start" *ngIf="filter.categoryId">
       <ion-icon class="back-icon" name="chevron-back-outline"></ion-icon>
     </ion-buttons>
-    <ion-searchbar [(ngModel)]="filter.name" placeholder="Я ищу" (ionChange)="search()"></ion-searchbar>
+    <ion-searchbar class="search-input" [(ngModel)]="filter.name" placeholder="Я ищу"
+                   (ionChange)="search()"></ion-searchbar>
   </ion-toolbar>
   <ion-toolbar class="second-toolbar"
                *ngIf="categoryChildrenMap[filter.categoryId] && categoryChildrenMap[filter.categoryId].length">
@@ -27,11 +28,19 @@
         <ion-row class="ion-align-items-center">
           <ion-col [size]="4"><img [src]="product.photos[0] | filePath" alt=""></ion-col>
           <ion-col [size]="8">
-            <ion-card-title>{{product.name}}</ion-card-title>
-            <ion-card-subtitle class="price">{{product.price}} сом</ion-card-subtitle>
-            <ion-card-subtitle>Код товара {{product.id}}</ion-card-subtitle>
-            <div class="btn" (click)="addToCart(product.id, $event)">
-              <ion-icon name="cart-outline"></ion-icon>
+            <div class="product__name">{{product.name}}</div>
+            <div class="product__price">{{product.price}} сом</div>
+            <div class="last-line">
+              <div class="product__code">Код товара {{product.id}}</div>
+              <ng-container *ngIf="cartMap[product.id]; else elseTmpl">
+                <div class="added">
+                  <div class="added__text">Добавлено <br/> в корзину</div>
+                  <ion-icon class="cart__icon" name="checkmark-done-outline"></ion-icon>
+                </div>
+              </ng-container>
+              <ng-template #elseTmpl>
+                <button (click)="addToCart(product.id, $event)" class="cart">В корзину</button>
+              </ng-template>
             </div>
           </ion-col>
         </ion-row>

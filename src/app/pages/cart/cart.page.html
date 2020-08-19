@@ -12,10 +12,10 @@
         <ion-row class="ion-align-items-center">
           <ion-col [size]="4"><img [src]="product.photos[0] | filePath" alt=""></ion-col>
           <ion-col [size]="8">
-            <ion-card-title>{{product.name}}</ion-card-title>
-            <ion-card-subtitle class="price">{{product.price}} сом * {{cartMap[product.id]}}</ion-card-subtitle>
-            <ion-card-subtitle>Код товара {{product.id}}</ion-card-subtitle>
-            <div class="count">
+            <div class="product__name">{{product.name}}</div>
+            <div class="product__price">{{product.price}} сом x {{cartMap[product.id]}}</div>
+            <div class="last-line">
+              <div class="product__code">Код товара {{product.id}}</div>
               <app-counter [value]="cartMap[product.id]" (valueChange)="updateCount(product.id, $event)"></app-counter>
             </div>
           </ion-col>
@@ -28,7 +28,7 @@
       </ion-label>
     </ion-item>
     <div class="btn-wrapper">
-      <ion-button (click)="presentModal()">Оформить заказ</ion-button>
+      <button (click)="presentModal()" class="btn">Оформить заказ</button>
     </div>
   </ng-container>
   <ng-template #elseTmpl>

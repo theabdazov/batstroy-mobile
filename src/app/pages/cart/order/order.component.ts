@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {ModalController} from '@ionic/angular';
 import {OrderAdding, OrderProduct} from '../../../interfaces/order';
 import {CartService} from '../../../services/cart.service';
@@ -19,6 +19,11 @@ export class OrderComponent implements OnInit {
     address: '',
     comment: ''
   };
+
+  @HostListener('document:ionBackButton', ['$event'])
+  overrideHardwareBackAction($event: any) {
+    this.dismiss();
+  }
 
   constructor(
     private modalController: ModalController,

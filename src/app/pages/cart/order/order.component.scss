@@ -2,3 +2,21 @@
   display: flex;
   justify-content: center;
 }
+
+
+.btn {
+  border-radius: 2px;
+  transition: all .1s ease-in-out;
+  padding: .375rem 1rem;
+  font-weight: 500;
+  border-width: 0;
+  border-color: #c33;
+  background: #c33;
+  color: #fff;
+  fill: #fff;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  font-size: 16px;
+  margin-top: 10px;
+}

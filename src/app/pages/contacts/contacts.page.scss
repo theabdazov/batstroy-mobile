@@ -1,0 +1,30 @@
+.section {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.section__title {
+  color: silver;
+  margin-bottom: 12px;
+}
+
+.section__body {
+  color: #3d464d;
+  padding-left: 5px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  //font-weight: 600;
+  margin-bottom: 10px;
+  //text-decoration: none;
+  color: #3d464d;
+}
+
+.item__icon {
+  width: 20px;
+  display: flex;
+  align-items: center;
+}
