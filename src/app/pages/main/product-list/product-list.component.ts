@@ -102,6 +102,7 @@ export class ProductListComponent extends ClearSubscriptions implements OnInit {
   }
 
   doRefresh(event) {
+    this.getCategories();
     this.products = [];
     this.filter.page = 1;
     this.productService.getProductListPublic(this.filter).subscribe(
