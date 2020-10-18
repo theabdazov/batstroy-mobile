@@ -1,23 +1,31 @@
 .first-toolbar {
   --min-height: 48px;
-  --background: #fafafa;
+  --background: #cc3333;
 }
 
 .back-icon {
   font-size: 27px;
   margin-left: 10px;
+  color: white;
 }
 
 .search-input {
   --box-shadow: none;
-  --background: #fafafa;
+  --background: #ea5f5f;
+  --placeholder-opacity: 0.8;
+  --clear-button-color: white;
+  --cancel-button-color: white;
+  --color: white;
+  --icon-color: white;
+  --border-radius: 5px;
+  padding: 3px 10px;
 }
 
 .second-toolbar {
   --min-height: 26px;
-  --padding-top: 0;
+  --padding-top: 5px;
   --padding-bottom: 5px;
-  --background: #fafafa;
+  --background: #cc3333;
 }
 
 .categories {
@@ -27,11 +35,9 @@
 .category {
   font-size: 12px;
   border-radius: 3px;
-  border: 1px solid silver;
   padding: 5px;
   font-weight: 600;
-  color: #3d464d;
-  background-color: white;
+  color: white;
 }
 
 .slide {
@@ -56,7 +62,6 @@
 ion-card {
   color: #3d464d;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ededed;
   border-radius: 2px;
 }
 
@@ -85,29 +90,14 @@ ion-card {
 
 .cart {
   border-radius: 2px;
-  transition: all .1s ease-in-out;
-  padding: .375rem 1rem;
-  font-weight: 500;
-  border-width: 0;
-  border-color: #c33;
-  background: #c33;
-  color: #fff;
-  fill: #fff;
-  display: flex;
-  align-items: center;
+  background: transparent;
+  color: #c33;
+  position: relative;
 }
-
-.cart__icon {
-  font-size: 15px;
-  margin-left: 3px
+.done__icon{
+  font-size: 21px;
 }
-
-.added {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  color: #3d464d;
-}
-
-.added__text {
+.cart__icon{
+  font-size: 22px;
+  color: black;
 }

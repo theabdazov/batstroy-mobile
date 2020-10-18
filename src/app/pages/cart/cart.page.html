@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="toolbar">
     <ion-title>Корзина</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,7 +10,9 @@
       <ion-icon (click)="delete(product.id)" class="close-icon" name="close-outline"></ion-icon>
       <ion-grid>
         <ion-row class="ion-align-items-center">
-          <ion-col [size]="4"><img [src]="product.photos[0] | filePath" alt=""></ion-col>
+          <ion-col [size]="4">
+            <app-product-image [src]="product.photos[0]"></app-product-image>
+          </ion-col>
           <ion-col [size]="8">
             <div class="product__name">{{product.name}}</div>
             <div class="product__price">{{product.price}} сом x {{cartMap[product.id]}}</div>
@@ -42,6 +44,12 @@
       </ion-label>
     </div>
   </ng-template>
-
-
 </ion-content>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <a href="tel:0700352362">
+    <ion-fab-button size="small" color="danger">
+      <ion-icon name="call-outline"></ion-icon>
+    </ion-fab-button>
+  </a>
+</ion-fab>
+

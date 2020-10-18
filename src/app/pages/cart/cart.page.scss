@@ -1,3 +1,7 @@
+.toolbar {
+  --background: #c33;
+  color: white;
+}
 
 .count {
   display: flex;
@@ -13,7 +17,6 @@
   position: relative;
   color: #3d464d;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ededed;
   border-radius: 2px;
 }
 

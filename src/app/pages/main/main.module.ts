@@ -11,6 +11,7 @@ import {ProductListComponent} from './product-list/product-list.component';
 import {ProductDetailComponent} from './product-detail/product-detail.component';
 import {CounterModule} from '../../modules/counter/counter.module';
 import {FilePathModule} from '../../modules/file-path/file-path.module';
+import {ProductImageModule} from '../../modules/product-image/product-image.module';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import {FilePathModule} from '../../modules/file-path/file-path.module';
     IonicModule,
     MainPageRoutingModule,
     CounterModule,
-    FilePathModule
+    FilePathModule,
+    ProductImageModule
   ],
   declarations: [MainPage, ProductListComponent, ProductDetailComponent]
 })

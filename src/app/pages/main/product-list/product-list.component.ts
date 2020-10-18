@@ -6,6 +6,7 @@ import {CartService} from '../../../services/cart.service';
 import {CategoryService} from '../../../services/category.service';
 import {Category, CategoryNode, CategoryWithParent} from '../../../interfaces/category';
 import {ClearSubscriptions} from '../../../util/clear-subscriptions';
+import {AlertController, ToastController} from '@ionic/angular';
 
 @Component({
   selector: 'app-product-list',
@@ -17,7 +18,7 @@ export class ProductListComponent extends ClearSubscriptions implements OnInit {
   products: ProductShortPublic[] = [];
   filter: ProductFilterPublic = {
     categoryId: 0,
-    count: 5,
+    count: 10,
     page: 1,
     name: null
   };
@@ -38,6 +39,7 @@ export class ProductListComponent extends ClearSubscriptions implements OnInit {
     private productService: ProductService,
     private cartService: CartService,
     private categoryService: CategoryService,
+    private toastController: ToastController
   ) {
     super();
   }
@@ -125,6 +127,28 @@ export class ProductListComponent extends ClearSubscriptions implements OnInit {
     event.preventDefault();
     event.stopPropagation();
     this.cartService.addToCart(productId, 1);
+    this.toastController.create({
+      message: 'Товар добавлен в корзину',
+      duration: 1000
+    }).then(
+      (v) => {
+        v.present();
+      }
+    );
+  }
+
+  deleteFromCart(productId: number, event: MouseEvent): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.cartService.deleteFromCart(productId);
+    this.toastController.create({
+      message: 'Товар удален с корзины',
+      duration: 1000
+    }).then(
+      (v) => {
+        v.present();
+      }
+    );
   }
 
   categorySelect(categoryId: number): void {

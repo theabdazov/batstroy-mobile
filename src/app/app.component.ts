@@ -12,32 +12,25 @@ import {Location} from '@angular/common';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  navLinksArray = [];
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private router: Router,
-    private _location: Location,
-    public alertController: AlertController
+    private location: Location,
+    private alertController: AlertController
   ) {
     this.initializeApp();
     this.platform.backButton.subscribeWithPriority(10, (processNextHandler) => {
-      console.log('Back press handler!');
-      if (this._location.isCurrentPathEqualTo('/tabs/main')) {
+      if (this.location.isCurrentPathEqualTo('/tabs/main')) {
         // Show Exit Alert!
-        console.log('Show Exit Alert!');
         this.showExitConfirm();
         processNextHandler();
       } else {
-
         // Navigate to back page
-        console.log('Navigate to back page');
-        this._location.back();
-
+        this.location.back();
       }
-
     });
 
     this.platform.backButton.subscribeWithPriority(5, () => {
@@ -55,8 +48,8 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.show();
-      this.statusBar.backgroundColorByHexString('#fff');
-      this.statusBar.styleDefault();
+      this.statusBar.backgroundColorByHexString('#932525');
+      this.statusBar.styleLightContent();
       this.splashScreen.hide();
     });
   }

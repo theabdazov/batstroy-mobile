@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="toolbar">
     <ion-buttons slot="start">
-      <ion-back-button [icon]="'chevron-back-outline'"></ion-back-button>
+      <ion-back-button color="light" icon="chevron-back-outline" text=""></ion-back-button>
     </ion-buttons>
     <ion-title>{{product?.name}}</ion-title>
   </ion-toolbar>
@@ -43,3 +43,11 @@
     </div>
   </div>
 </ion-content>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <a href="tel:0700352362">
+    <ion-fab-button size="small" color="danger">
+      <ion-icon name="call-outline"></ion-icon>
+    </ion-fab-button>
+  </a>
+</ion-fab>

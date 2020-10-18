@@ -3,7 +3,7 @@
     <ion-buttons (click)="onClickBack()" slot="start" *ngIf="filter.categoryId">
       <ion-icon class="back-icon" name="chevron-back-outline"></ion-icon>
     </ion-buttons>
-    <ion-searchbar class="search-input" [(ngModel)]="filter.name" placeholder="Я ищу"
+    <ion-searchbar class="search-input" [(ngModel)]="filter.name" placeholder="Поиск"
                    (ionChange)="search()"></ion-searchbar>
   </ion-toolbar>
   <ion-toolbar class="second-toolbar"
@@ -26,20 +26,23 @@
     <ion-card *ngFor="let product of products" [routerLink]="['product', product.id]">
       <ion-grid>
         <ion-row class="ion-align-items-center">
-          <ion-col [size]="4"><img [src]="product.photos[0] | filePath" alt=""></ion-col>
+          <ion-col [size]="4">
+            <app-product-image [src]="product.photos[0]"></app-product-image>
+          </ion-col>
           <ion-col [size]="8">
             <div class="product__name">{{product.name}}</div>
             <div class="product__price">{{product.price}} сом</div>
             <div class="last-line">
               <div class="product__code">Код товара {{product.id}}</div>
               <ng-container *ngIf="cartMap[product.id]; else elseTmpl">
-                <div class="added">
-                  <div class="added__text">Добавлено <br/> в корзину</div>
-                  <ion-icon class="cart__icon" name="checkmark-done-outline"></ion-icon>
-                </div>
+                <button (click)="deleteFromCart(product.id, $event)" class="cart">
+                  <ion-icon class="done__icon" name="checkmark-done-outline"></ion-icon>
+                </button>
               </ng-container>
               <ng-template #elseTmpl>
-                <button (click)="addToCart(product.id, $event)" class="cart">В корзину</button>
+                <button (click)="addToCart(product.id, $event)" class="cart">
+                  <ion-icon class="cart__icon" name="cart-outline"></ion-icon>
+                </button>
               </ng-template>
             </div>
           </ion-col>
@@ -63,3 +66,11 @@
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Загрузка..."></ion-infinite-scroll-content>
   </ion-infinite-scroll>
 </ion-content>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <a href="tel:0700352362">
+    <ion-fab-button size="small" color="danger">
+      <ion-icon name="call-outline"></ion-icon>
+    </ion-fab-button>
+  </a>
+</ion-fab>
