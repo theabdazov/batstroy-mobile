@@ -31,7 +31,7 @@
           </ion-col>
           <ion-col [size]="8">
             <div class="product__name">{{product.name}}</div>
-            <div class="product__price">{{product.price}} сом</div>
+            <div class="product__price">{{product.price}} Сом/{{product.saleType?.shortName}}</div>
             <div class="last-line">
               <div class="product__code">Код товара {{product.id}}</div>
               <ng-container *ngIf="cartMap[product.id]; else elseTmpl">

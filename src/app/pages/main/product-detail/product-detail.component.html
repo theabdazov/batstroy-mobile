@@ -16,7 +16,7 @@
   <div class="product__name">{{product?.name}}</div>
   <div class="product__code">Код товара {{product?.id}}</div>
   <div class="cart">
-    <div class="product__price">{{product?.price}} сом</div>
+    <div class="product__price">{{product?.price}} Сом/{{product?.saleType?.shortName}}</div>
     <ng-container *ngIf="cartMap[product?.id]; else elseTmpl">
       <div class="added">
         <div class="added__text">Добавлено <br/> в корзину</div>

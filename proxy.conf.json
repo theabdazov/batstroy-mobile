@@ -1,11 +1,11 @@
 {
   "/api/*": {
-    "target": "https://batstroy.kg",
+    "target": "http://localhost:3000",
     "secure": false,
     "logLevel": "debug"
   },
   "/uploads/*": {
-    "target": "https://batstroy.kg",
+    "target": "http://localhost:3000",
     "secure": false,
     "logLevel": "debug"
   }
