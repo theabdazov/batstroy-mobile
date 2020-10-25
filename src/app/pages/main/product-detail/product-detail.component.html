@@ -28,8 +28,10 @@
     </ng-template>
   </div>
   <div class="card">
-    <div class="card__title">Краткая описание</div>
-    <div class="card__body">{{product?.desc}}</div>
+    <div class="card__title">Описание</div>
+    <div class="card__body">
+      <div [innerHTML]="product?.desc"></div>
+    </div>
   </div>
   <div class="card" *ngIf="product?.characteristicValues?.length">
     <div class="card__title">Характеристики</div>
