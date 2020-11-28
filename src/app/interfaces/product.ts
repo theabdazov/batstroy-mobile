@@ -1,6 +1,6 @@
 import {Pagination} from './pagination';
-import {CharacteristicValue} from './characteristic-value';
 import {SaleType} from './sale-type';
+import {ProductCharacteristic} from './product-characteristic';
 
 export interface ProductShortPublic {
   id: number;
@@ -16,6 +16,6 @@ export interface ProductFilterPublic extends Pagination {
 }
 
 export interface ProductDetailPublic extends ProductShortPublic {
-  characteristicValues: CharacteristicValue[];
+  characteristics: ProductCharacteristic[];
   desc: string;
 }

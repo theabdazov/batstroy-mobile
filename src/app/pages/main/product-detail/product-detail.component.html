@@ -33,12 +33,12 @@
       <div [innerHTML]="product?.desc"></div>
     </div>
   </div>
-  <div class="card" *ngIf="product?.characteristicValues?.length">
+  <div class="card" *ngIf="product?.characteristics">
     <div class="card__title">Характеристики</div>
     <div class="card__body">
       <div class="characteristic">
-        <div class="characteristic__item" *ngFor="let characteristic of product?.characteristicValues">
-          <div class="characteristic__name">{{characteristic.characteristic?.name}}</div>
+        <div class="characteristic__item" *ngFor="let characteristic of product?.characteristics">
+          <div class="characteristic__name">{{characteristic.title}}</div>
           <div class="characteristic__value">{{characteristic.value}}</div>
         </div>
       </div>
