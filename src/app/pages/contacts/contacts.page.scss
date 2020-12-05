@@ -3,19 +3,26 @@
   color: white;
 }
 
+.content {
+  --background: #f9f9f9;
+}
+
 .section {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  border-radius: 7px;
+  background-color: white;
 }
 
 .section__title {
-  color: silver;
-  margin-bottom: 12px;
+  color: #a7a7a7;
+  font-size: 14px;
+  margin-bottom: 8px;
 }
 
 .section__body {
-  color: #3d464d;
+  color: #000000;
   padding-left: 5px;
 }
 
@@ -25,13 +32,21 @@
   //font-weight: 600;
   margin-bottom: 10px;
   //text-decoration: none;
-  color: #3d464d;
+  color: #000000;
+  //text-decoration: none;
 }
 
 .item__icon {
   width: 20px;
+  margin-right: 5px;
   display: flex;
   align-items: center;
+}
+
+.item__icon-image {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
 }
 
 .item__value {
