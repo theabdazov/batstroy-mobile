@@ -7,6 +7,26 @@
   --background: #f9f9f9;
 }
 
+.baner {
+  width: 100%;
+  background: linear-gradient(150deg, #2b3642, #3d464d);
+  margin-bottom: 15px;
+  border-radius: 7px;
+  color: white;
+  padding: 15px 10px;
+}
+
+.baner__title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.baner__desc {
+  margin: 5px 0 0 0;
+  font-size: 13px;
+}
+
 .section {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 10px;
