@@ -32,13 +32,24 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 30px;
-  text-align: center;;
+  text-align: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .empty__icon {
-  font-size: 60px;
-  color: #3d464d;
+  font-size: 40px;
+  color: #828282;
+}
+
+.empty__title {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.empty__desc {
+  font-size: 11px;
+  color: #7b7b7b;
 }
 
 .product__name {
