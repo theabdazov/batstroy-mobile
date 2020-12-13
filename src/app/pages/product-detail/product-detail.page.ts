@@ -1,16 +1,16 @@
 import {Component, OnInit} from '@angular/core';
+import {ProductDetailPublic} from '../../interfaces/product';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ProductDetailPublic} from '../../../interfaces/product';
-import {ProductService} from '../../../services/product.service';
-import {CartService} from '../../../services/cart.service';
-import {ClearSubscriptions} from '../../../util/clear-subscriptions';
+import {ProductService} from '../../services/product.service';
+import {CartService} from '../../services/cart.service';
+import {ClearSubscriptions} from '../../util/clear-subscriptions';
 
 @Component({
   selector: 'app-product-detail',
-  templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.scss'],
+  templateUrl: './product-detail.page.html',
+  styleUrls: ['./product-detail.page.scss'],
 })
-export class ProductDetailComponent extends ClearSubscriptions implements OnInit {
+export class ProductDetailPage extends ClearSubscriptions implements OnInit {
 
   product: ProductDetailPublic;
   productId: number;
@@ -53,6 +53,5 @@ export class ProductDetailComponent extends ClearSubscriptions implements OnInit
   addToCart(): void {
     this.cartService.addToCart(this.product.id, this.count);
   }
-
 
 }

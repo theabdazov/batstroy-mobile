@@ -4,12 +4,16 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     component: TabsPage,
     children: [
       {
-        path: 'main',
-        loadChildren: () => import('../main/main.module').then(m => m.MainPageModule)
+        path: 'products',
+        loadChildren: () => import('../product-list/product-list.module').then(m => m.ProductListPageModule)
+      },
+      {
+        path: 'products/:id',
+        loadChildren: () => import('../product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
       },
       {
         path: 'cart',
@@ -21,15 +25,10 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/main',
+        redirectTo: 'products',
         pathMatch: 'full'
       }
     ]
-  },
-  {
-    path: '',
-    redirectTo: '/tabs/main',
-    pathMatch: 'full'
   }
 ];
 

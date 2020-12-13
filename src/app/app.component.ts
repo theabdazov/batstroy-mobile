@@ -23,7 +23,7 @@ export class AppComponent {
   ) {
     this.initializeApp();
     this.platform.backButton.subscribeWithPriority(10, (processNextHandler) => {
-      if (this.location.isCurrentPathEqualTo('/tabs/main')) {
+      if (this.location.isCurrentPathEqualTo('/tabs/products')) {
         // Show Exit Alert!
         this.showExitConfirm();
         processNextHandler();

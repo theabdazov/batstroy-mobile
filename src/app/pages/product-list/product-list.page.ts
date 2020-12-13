@@ -1,19 +1,20 @@
-import {Component, OnInit} from '@angular/core';
-import {ProductFilterPublic, ProductShortPublic} from '../../../interfaces/product';
-import {ProductService} from '../../../services/product.service';
-import {PaginationPage} from '../../../interfaces/pagination';
-import {CartService} from '../../../services/cart.service';
-import {CategoryService} from '../../../services/category.service';
-import {Category, CategoryNode, CategoryWithParent} from '../../../interfaces/category';
-import {ClearSubscriptions} from '../../../util/clear-subscriptions';
-import {AlertController, ToastController} from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import {ProductFilterPublic, ProductShortPublic} from '../../interfaces/product';
+import {Category, CategoryNode, CategoryWithParent} from '../../interfaces/category';
+import {ProductService} from '../../services/product.service';
+import {CartService} from '../../services/cart.service';
+import {CategoryService} from '../../services/category.service';
+import {ToastController} from '@ionic/angular';
+import {PaginationPage} from '../../interfaces/pagination';
+import {ClearSubscriptions} from '../../util/clear-subscriptions';
 
 @Component({
   selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss'],
+  templateUrl: './product-list.page.html',
+  styleUrls: ['./product-list.page.scss'],
 })
-export class ProductListComponent extends ClearSubscriptions implements OnInit {
+export class ProductListPage extends ClearSubscriptions implements OnInit {
+
 
   products: ProductShortPublic[] = [];
   filter: ProductFilterPublic = {
@@ -168,4 +169,5 @@ export class ProductListComponent extends ClearSubscriptions implements OnInit {
   search(): void {
     this.getData();
   }
+
 }

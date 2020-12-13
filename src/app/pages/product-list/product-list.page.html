@@ -23,7 +23,7 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ng-container *ngIf="products.length; else elseTmpl">
-    <ion-card *ngFor="let product of products" [routerLink]="['product', product.id]">
+    <ion-card *ngFor="let product of products" [routerLink]="[product.id]">
       <ion-grid>
         <ion-row class="ion-align-items-center">
           <ion-col [size]="4">
